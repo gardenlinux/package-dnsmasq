@@ -1,0 +1,18 @@
+pkg=dnsmasq
+version_orig=2.93
+version="$version_orig-3"
+
+# Import upstream source distribution (creates orig.tar)
+git_src --branch v"$version_orig" https://thekelleys.org.uk/git/dnsmasq.git
+
+# Import debian packaging from the debian repository
+(
+	org_dir="$(mktemp -d)"
+	trap 'rm -rf "$org_dir"' EXIT
+	git clone --depth 1 --branch "debian/$version" https://thekelleys.org.uk/git/dnsmasq-debian.git "$org_dir"
+	rm -rf "$dir/src/debian"
+	cp -rp "$org_dir/debian" "$dir/src/debian"
+)
+
+apply_patches
+version_suffix=gl0~bp2150

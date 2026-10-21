@@ -1,0 +1,10 @@
+--- a/debian/control	2026-10-21 06:21:26.000000000 +0000
++++ b/debian/control	2026-10-21 06:33:34.893542180 +0000
+@@ -1,6 +1,6 @@
+ Source: dnsmasq
+ Section: net
+-Build-Depends: debhelper-compat (= 14),
++Build-Depends: debhelper-compat (= 13),
+                dh-exec,
+                dh-runit,
+                dh-sequence-installsysusers,
